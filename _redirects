@@ -1,0 +1,3 @@
+# Redirect netlify subdomain to custom domain
+https://viccar.netlify.app/* https://blablacar.lol/:splat 301!
+http://viccar.netlify.app/* https://blablacar.lol/:splat 301!

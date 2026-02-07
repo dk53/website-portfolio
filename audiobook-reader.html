@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Audiobook Reader - Simply Listen</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="base.css">
+    <style>
+        /* App page specific styles */
+        .app-hero {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+            padding: var(--spacing-3xl) var(--spacing-lg);
+            text-align: center;
+            overflow: hidden;
+        }
+
+        .app-hero-bg {
+            position: absolute;
+            inset: 0;
+            background:
+                radial-gradient(ellipse at 50% 30%, rgba(212, 136, 90, 0.15) 0%, transparent 50%),
+                radial-gradient(ellipse at 80% 70%, rgba(224, 148, 102, 0.08) 0%, transparent 40%);
+            pointer-events: none;
+        }
+
+        .app-icon {
+            width: 120px;
+            height: 120px;
+            border-radius: 28px;
+            box-shadow: 0 20px 60px rgba(212, 136, 90, 0.3);
+            margin-bottom: var(--spacing-lg);
+            animation: fadeInUp 0.8s ease 0.1s forwards;
+            opacity: 0;
+        }
+
+        .app-hero h1 {
+            font-family: var(--font-display);
+            font-size: clamp(2.5rem, 6vw, 4rem);
+            font-weight: 700;
+            line-height: 1.1;
+            margin-bottom: var(--spacing-sm);
+            animation: fadeInUp 0.8s ease 0.2s forwards;
+            opacity: 0;
+        }
+
+        .app-tagline {
+            font-size: clamp(1.25rem, 3vw, 1.5rem);
+            color: #D4885A;
+            font-weight: 500;
+            margin-bottom: var(--spacing-md);
+            animation: fadeInUp 0.8s ease 0.3s forwards;
+            opacity: 0;
+        }
+
+        .app-description {
+            font-size: 1.125rem;
+            color: var(--color-text-secondary);
+            max-width: 560px;
+            margin-bottom: var(--spacing-xl);
+            animation: fadeInUp 0.8s ease 0.4s forwards;
+            opacity: 0;
+        }
+
+        .app-store-badge {
+            display: inline-block;
+            padding: 1rem 2rem;
+            background: white;
+            color: #0a0a0b;
+            font-weight: 600;
+            font-size: 1rem;
+            border-radius: var(--radius-full);
+            transition: all var(--transition-normal);
+            animation: fadeInUp 0.8s ease 0.5s forwards;
+            opacity: 0;
+        }
+
+        .app-store-badge:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 30px rgba(255, 255, 255, 0.15);
+        }
+
+        /* Features section */
+        .app-features {
+            padding: var(--spacing-3xl) 0;
+            background: var(--color-bg-secondary);
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: var(--spacing-lg);
+        }
+
+        .feature-card {
+            background: var(--color-bg);
+            padding: var(--spacing-xl);
+            border-radius: var(--radius-md);
+            border: 1px solid var(--color-border);
+            transition: all var(--transition-normal);
+        }
+
+        .feature-card:hover {
+            border-color: #D4885A;
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+        }
+
+        .feature-icon {
+            font-size: 2rem;
+            margin-bottom: var(--spacing-md);
+        }
+
+        .feature-card h3 {
+            font-size: 1.25rem;
+            margin-bottom: var(--spacing-sm);
+        }
+
+        .feature-card p {
+            color: var(--color-text-muted);
+            font-size: 0.9rem;
+        }
+
+        /* Screenshots section */
+        .app-screenshots {
+            padding: var(--spacing-3xl) 0;
+        }
+
+        .screenshots-scroll {
+            display: flex;
+            gap: var(--spacing-lg);
+            overflow-x: auto;
+            padding: var(--spacing-lg) 0;
+            scroll-snap-type: x mandatory;
+            -webkit-overflow-scrolling: touch;
+        }
+
+        .screenshots-scroll::-webkit-scrollbar {
+            display: none;
+        }
+
+        .screenshot-item {
+            flex-shrink: 0;
+            width: 280px;
+            border-radius: var(--radius-lg);
+            overflow: hidden;
+            border: 2px solid var(--color-border);
+            scroll-snap-align: center;
+            transition: all var(--transition-normal);
+        }
+
+        .screenshot-item:hover {
+            border-color: #D4885A;
+        }
+
+        .screenshot-item img {
+            width: 100%;
+            display: block;
+        }
+
+        /* Privacy link */
+        .app-footer-links {
+            display: flex;
+            justify-content: center;
+            gap: var(--spacing-lg);
+            margin-top: var(--spacing-md);
+        }
+
+        .app-footer-links a {
+            color: var(--color-text-muted);
+            font-size: 0.875rem;
+            transition: color var(--transition-fast);
+        }
+
+        .app-footer-links a:hover {
+            color: #D4885A;
+        }
+
+        /* Accent override for this page */
+        .app-features .section-tag {
+            color: #D4885A;
+        }
+
+        .app-screenshots .section-tag {
+            color: #D4885A;
+        }
+
+        @media (max-width: 768px) {
+            .features-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .screenshot-item {
+                width: 220px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="nav scrolled">
+        <div class="nav-container">
+            <a href="/" class="nav-logo">Victor</a>
+            <ul class="nav-links">
+                <li><a href="#features">Features</a></li>
+                <li><a href="#screenshots">Screenshots</a></li>
+                <li><a href="audiobook-reader/privacy.html">Privacy</a></li>
+            </ul>
+            <button class="nav-toggle" aria-label="Toggle menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Hero -->
+    <section class="app-hero">
+        <div class="app-hero-bg"></div>
+        <img src="app-icon.png" alt="Audiobook Reader" class="app-icon">
+        <h1>Audiobook Reader</h1>
+        <p class="app-tagline">Simply listen.</p>
+        <p class="app-description">
+            Built for long-form listening. Import your audiobooks from anywhere
+            and enjoy a player designed for hours of content.
+        </p>
+        <!-- <a href="https://apps.apple.com/app/audiobook-reader" class="app-store-badge">
+            Download on the App Store
+        </a> -->
+    </section>
+
+    <!-- Features -->
+    <section id="features" class="app-features">
+        <div class="container">
+            <div class="section-header" style="text-align: center;">
+                <span class="section-tag">Features</span>
+                <h2 class="section-title">Made for Audiobooks</h2>
+            </div>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">&#127911;</div>
+                    <h3>AirPods Controls</h3>
+                    <p>Tap to skip forward, double-tap to go back, press to play or pause. Works from the lock screen too.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">&#128266;</div>
+                    <h3>Background Playback</h3>
+                    <p>Keep listening while you browse, message, or lock your phone. Full lock screen and Control Center integration.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">&#128214;</div>
+                    <h3>M4B Chapters</h3>
+                    <p>Native chapter support for M4B files and multi-file audiobooks. Navigate hours of content effortlessly.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">&#9201;&#65039;</div>
+                    <h3>Sleep Timer</h3>
+                    <p>Set a timer and fall asleep to your book. Smooth fade-out so you never miss where you stopped.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">&#128205;</div>
+                    <h3>Never Lose Your Place</h3>
+                    <p>Position is saved automatically, always. Close the app, restart your phone, come back days later. You're right where you left off.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">&#128193;</div>
+                    <h3>Import From Anywhere</h3>
+                    <p>Files app, iCloud Drive, Google Drive, Dropbox. Bring your audiobooks from any source.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Screenshots -->
+    <section id="screenshots" class="app-screenshots">
+        <div class="container">
+            <div class="section-header" style="text-align: center;">
+                <span class="section-tag">Screenshots</span>
+                <h2 class="section-title">See It in Action</h2>
+            </div>
+        </div>
+        <div class="screenshots-scroll">
+            <div style="flex-shrink: 0; width: 40px;"></div>
+            <div class="screenshot-item"><img src="screenshots/library.png" alt="Library view"></div>
+            <div class="screenshot-item"><img src="screenshots/detail.png" alt="Audiobook detail"></div>
+            <div class="screenshot-item"><img src="screenshots/player.png" alt="Player"></div>
+            <div class="screenshot-item"><img src="screenshots/import.png" alt="Import menu"></div>
+            <div class="screenshot-item"><img src="screenshots/cloud.png" alt="Cloud providers"></div>
+            <div style="flex-shrink: 0; width: 40px;"></div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content" style="flex-direction: column; gap: var(--spacing-sm);">
+                <p>&copy; 2025 Victor Carmouze. Built with passion in Paris.</p>
+                <div class="app-footer-links">
+                    <a href="audiobook-reader/privacy.html">Privacy Policy</a>
+                    <a href="mailto:victor.carmouze@gmail.com">Support</a>
+                    <a href="/">Back to portfolio</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile nav toggle
+        const toggle = document.querySelector('.nav-toggle');
+        const links = document.querySelector('.nav-links');
+        if (toggle && links) {
+            toggle.addEventListener('click', () => links.classList.toggle('active'));
+        }
+    </script>
+</body>
+</html>

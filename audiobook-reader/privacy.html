@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Privacy Policy - Audiobook Reader</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../base.css">
+    <style>
+        .privacy-page {
+            padding: calc(var(--spacing-3xl) + 80px) 0 var(--spacing-3xl);
+        }
+
+        .privacy-content {
+            max-width: 720px;
+            margin: 0 auto;
+        }
+
+        .privacy-content h1 {
+            font-family: var(--font-display);
+            font-size: clamp(2rem, 5vw, 3rem);
+            font-weight: 700;
+            margin-bottom: var(--spacing-sm);
+        }
+
+        .privacy-content .last-updated {
+            color: var(--color-text-muted);
+            font-size: 0.875rem;
+            margin-bottom: var(--spacing-2xl);
+        }
+
+        .privacy-content h2 {
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-top: var(--spacing-xl);
+            margin-bottom: var(--spacing-md);
+        }
+
+        .privacy-content p {
+            color: var(--color-text-secondary);
+            margin-bottom: var(--spacing-md);
+            line-height: 1.8;
+        }
+
+        .privacy-content ul {
+            color: var(--color-text-secondary);
+            margin-bottom: var(--spacing-md);
+            padding-left: var(--spacing-lg);
+            list-style: disc;
+        }
+
+        .privacy-content ul li {
+            margin-bottom: var(--spacing-xs);
+            line-height: 1.8;
+        }
+
+        .privacy-content strong {
+            color: var(--color-text);
+        }
+
+        .privacy-content a {
+            color: #D4885A;
+            text-decoration: underline;
+        }
+
+        .privacy-content a:hover {
+            color: #E09466;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="nav scrolled">
+        <div class="nav-container">
+            <a href="/" class="nav-logo">Victor</a>
+            <ul class="nav-links">
+                <li><a href="/audiobook-reader.html">Audiobook Reader</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <section class="privacy-page">
+        <div class="container">
+            <div class="privacy-content">
+                <h1>Privacy Policy</h1>
+                <p class="last-updated">Last updated: February 7, 2026</p>
+
+                <p>
+                    Audiobook Reader ("the App") is developed by Victor Carmouze. This policy
+                    describes how the App handles your data. The short version: <strong>your data
+                    stays on your device, and we don't collect anything</strong>.
+                </p>
+
+                <h2>Data Collection</h2>
+                <p>
+                    Audiobook Reader does <strong>not</strong> collect, store, or transmit any
+                    personal data. The App runs entirely on your device.
+                </p>
+                <p>Specifically, the App does not collect:</p>
+                <ul>
+                    <li>Personal information (name, email, address)</li>
+                    <li>Usage analytics or tracking data</li>
+                    <li>Device identifiers or advertising IDs</li>
+                    <li>Location data</li>
+                    <li>Crash reports or diagnostics</li>
+                </ul>
+
+                <h2>Audio Files</h2>
+                <p>
+                    Audio files you import into the App are stored locally on your device. The App
+                    accesses files only through Apple's standard file picker (Document Picker) and
+                    security-scoped bookmarks. Files are never uploaded to any server.
+                </p>
+
+                <h2>Playback Data</h2>
+                <p>
+                    Your library, playback positions, bookmarks, and preferences are stored locally
+                    on your device in the App's sandbox. This data is never transmitted off your device.
+                </p>
+
+                <h2>Third-Party Services</h2>
+                <p>
+                    Audiobook Reader does not integrate any third-party analytics, advertising, or
+                    tracking services. There are no SDKs from Facebook, Google Analytics, Firebase,
+                    or similar platforms.
+                </p>
+
+                <h2>Network Access</h2>
+                <p>
+                    The App may access the network only when you import files from cloud storage
+                    providers (iCloud Drive, Google Drive, Dropbox, etc.) through Apple's standard
+                    file picker. These connections are managed entirely by iOS and the respective
+                    cloud provider apps. Audiobook Reader does not make any network requests itself.
+                </p>
+
+                <h2>Children's Privacy</h2>
+                <p>
+                    The App does not knowingly collect any data from children or anyone else. Since
+                    no data is collected, the App is safe for users of all ages.
+                </p>
+
+                <h2>Changes to This Policy</h2>
+                <p>
+                    If this policy changes, the updated version will be posted on this page with a
+                    new "Last updated" date. Since the App collects no data, meaningful changes are
+                    unlikely.
+                </p>
+
+                <h2>Contact</h2>
+                <p>
+                    If you have questions about this privacy policy,
+                    <a href="#" id="contact-link" onclick="this.href='mailto:'+['victor.carmouze','gmail.com'].join('@');this.textContent=['victor.carmouze','gmail.com'].join('@');">click here to reveal my email</a>.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <p>&copy; 2025 Victor Carmouze</p>
+                <a href="/audiobook-reader.html" style="color: var(--color-text-muted); font-size: 0.875rem;">Back to Audiobook Reader</a>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
